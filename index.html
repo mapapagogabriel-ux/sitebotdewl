@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nindo Craft - Exame de Qualificação Ninja</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        .section-header {
+            margin: 2.5rem 0 1.5rem;
+            text-align: center;
+            border-bottom: 2px solid var(--primary-red);
+            padding-bottom: 0.8rem;
+        }
+        .section-header h3 {
+            font-family: 'Cinzel', serif;
+            color: #fff;
+            font-size: 1.6rem;
+            margin-bottom: 0.3rem;
+        }
+        .section-header p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+        .checkbox-group {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 1.2rem;
+            gap: 12px;
+            background: rgba(0, 0, 0, 0.2);
+            padding: 12px;
+            border-radius: 6px;
+            border-left: 3px solid var(--primary-red);
+        }
+        .checkbox-group input[type="checkbox"] {
+            width: 22px;
+            height: 22px;
+            margin-top: 2px;
+            accent-color: var(--primary-red);
+            cursor: pointer;
+        }
+        .checkbox-group label {
+            font-size: 0.95rem;
+            color: #e2e2e2;
+            line-height: 1.5;
+            cursor: pointer;
+        }
+        select {
+            width: 100%;
+            background: var(--input-bg);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            padding: 1rem;
+            color: #fff;
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            appearance: none;
+            cursor: pointer;
+        }
+        select:focus {
+            outline: none;
+            border-color: var(--primary-red);
+            box-shadow: 0 0 10px rgba(201, 24, 24, 0.3);
+            background: rgba(20, 5, 5, 0.6);
+        }
+        select option {
+            background-color: var(--bg-dark);
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <header class="main-header">
+        <h1>Nindo Craft<br><span>Shinobi War</span></h1>
+    </header>
+
+    <main class="container">
+        <div class="form-wrapper">
+            <div class="form-header">
+                <h2>📜 Exame de Qualificação Ninja 📜</h2>
+                <p>Preencha sua inscrição original. Suas respostas definem seu futuro na vila.</p>
+            </div>
+            
+            <form id="whitelistForm">
+                <!-- Perfil do Jogador (OOC) -->
+                <div class="section-header" style="margin-top:0;">
+                    <h3>👤 Perfil do Jogador (OOC) 👤</h3>
+                    <p>Informações sobre quem está atrás da tela.</p>
+                </div>
+                <div class="input-group">
+                    <label for="discordTag">Discord (Usuário)</label>
+                    <input type="text" id="discordTag" name="discordTag" required placeholder="Ex: naruto_uzumaki ou usuario#1234">
+                </div>
+                <div class="input-group">
+                    <label for="discordId">Discord ID (Numérico)</label>
+                    <input type="text" id="discordId" name="discordId" required placeholder="Ex: 123456789012345678">
+                </div>
+                <div class="input-group">
+                    <label for="minecraftNick">Nick no Minecraft</label>
+                    <input type="text" id="minecraftNick" name="minecraftNick" required placeholder="Seu nickname exato no jogo">
+                </div>
+                <div class="input-group" style="display: flex; gap: 1rem;">
+                    <div style="flex: 1;">
+                        <label for="age">Idade Real</label>
+                        <input type="number" id="age" name="age" required min="1" placeholder="Sua Idade">
+                    </div>
+                    <div style="flex: 1;">
+                        <label for="pronouns">Pronomes Preferidos</label>
+                        <input type="text" id="pronouns" name="pronouns" required placeholder="Ex: Ele/dele, Ela/dela">
+                    </div>
+                </div>
+                <div class="input-group">
+                    <label for="availability">Disponibilidade e Horários</label>
+                    <input type="text" id="availability" name="availability" required placeholder="Ex: Seg a Sex à noite. Em média 3h por dia.">
+                </div>
+                <div class="input-group">
+                    <label for="playerProfile">Perfil do Jogador (Lidando com Conflitos)</label>
+                    <textarea id="playerProfile" name="playerProfile" rows="3" required placeholder="Como você lida com frustrações ou quando seu personagem perde uma batalha importante no Roleplay?"></textarea>
+                </div>
+                <div class="input-group">
+                    <label for="rpExperience">Sua Bagagem no Roleplay</label>
+                    <textarea id="rpExperience" name="rpExperience" rows="3" required placeholder="Você já participou de outros servidores de RP? O que te chamou a atenção no nosso projeto?"></textarea>
+                </div>
+
+                <!-- Criação de Identidade (IC) -->
+                <div class="section-header">
+                    <h3>⛩️ Identidade Shinobi (IC) ⛩️</h3>
+                    <p>Dê vida ao seu personagem. Seja criativo e original.</p>
+                </div>
+                <div class="input-group">
+                    <label for="charName">Nome Completo do Shinobi</label>
+                    <input type="text" id="charName" name="charName" required placeholder="Nome e Clã/Sobrenome">
+                </div>
+                <div class="input-group" style="display: flex; gap: 1rem;">
+                    <div style="flex: 1;">
+                        <label for="charAge">Idade Inicial do Personagem</label>
+                        <input type="number" id="charAge" name="charAge" required min="10" max="80" placeholder="Idade (10-80 anos)">
+                    </div>
+                    <div style="flex: 1;">
+                        <label for="charAlignment">Alinhamento / Caminho Ninja</label>
+                        <select id="charAlignment" name="charAlignment" required>
+                            <option value="" disabled selected>Escolha uma opção</option>
+                            <option value="Leal / Herói">Leal à Vila / Prestativo</option>
+                            <option value="Neutro / Mercenário">Neutro / Busca Própria</option>
+                            <option value="Sombrio / Ambicioso">Sombrio / Questionador</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="input-group">
+                    <label for="charPsychology">Traços Psicológicos e Medos</label>
+                    <textarea id="charPsychology" name="charPsychology" rows="3" required placeholder="Cite 3 características marcantes do temperamento dele e seus maiores medos."></textarea>
+                </div>
+                <div class="input-group">
+                    <label for="charLore">Crônicas do Shinobi (Lore Principal)</label>
+                    <textarea id="charLore" name="charLore" rows="5" required placeholder="Narre a origem do seu personagem. Detalhe traumas, figuras de inspiração e seu maior objetivo de vida no mundo ninja."></textarea>
+                </div>
+                <div class="input-group">
+                    <label for="rpScenario">Cenário de Roleplay: O Resgate</label>
+                    <textarea id="rpScenario" name="rpScenario" rows="3" required placeholder="Seu personagem encontra um aliado ferido e encurralado por ninjas inimigos em território hostil. Como ele agiria com base na personalidade que você criou?"></textarea>
+                </div>
+
+                <!-- Conhecimentos de Roleplay -->
+                <div class="section-header">
+                    <h3>🧠 Lógica de Roleplay 🧠</h3>
+                    <p>Avaliação sobre separação de jogador e personagem.</p>
+                </div>
+                <div class="input-group">
+                    <label for="metaGamingSense">Separação de Informações (Evitando Metagaming)</label>
+                    <textarea id="metaGamingSense" name="metaGamingSense" rows="2" required placeholder="Como você evita usar informações que você leu no Discord quando está interpretando seu personagem no jogo?"></textarea>
+                </div>
+                <div class="input-group">
+                    <label for="powerGamingSense">Limites Físicos (Evitando Powergaming)</label>
+                    <textarea id="powerGamingSense" name="powerGamingSense" rows="2" required placeholder="Como você narra suas ações em uma luta onde seu personagem está claramente em desvantagem, sem ser invencível?"></textarea>
+                </div>
+                <div class="input-group">
+                    <label for="darkRpSense">Senso Crítico (Limites do Dark RP)</label>
+                    <textarea id="darkRpSense" name="darkRpSense" rows="2" required placeholder="Sabemos que o mundo ninja tem batalhas e traições, mas quais atitudes 'pesadas' você acha que destroem o RP e devem ser banidas?"></textarea>
+                </div>
+                <div class="input-group">
+                    <label for="antiRpSense">Lidando com Quebra de Imersão (Anti-RP)</label>
+                    <textarea id="antiRpSense" name="antiRpSense" rows="2" required placeholder="Se alguém começar a falar girias de fora do jogo na sua frente no meio de um RP sério, como seu personagem reage? E o que você (jogador) faz depois?"></textarea>
+                </div>
+
+                <!-- Termos de Ciência Oficiais -->
+                <div class="section-header">
+                    <h3>⚖️ Contrato Ninja (Regras) ⚖️</h3>
+                    <p>Confirme os termos para garantir um ambiente saudável.</p>
+                </div>
+                
+                <p style="color: #ccc; margin-bottom: 1.5rem; font-size: 0.95rem; text-align: center;"><strong>Marque todas as obrigações abaixo:</strong></p>
+
+                <div class="checkbox-group">
+                    <input type="checkbox" id="ciente1" name="ciente1" required>
+                    <label for="ciente1"><strong>Roleplay Restrito:</strong> Compreendo que a imersão é o pilar deste servidor. Aceito que qualquer quebra intencional de personagem (falar OOC no chat local) pode me levar à expulsão.</label>
+                </div>
+                <div class="checkbox-group">
+                    <input type="checkbox" id="ciente2" name="ciente2" required>
+                    <label for="ciente2"><strong>Início Imediato:</strong> Aceito que o RP é contínuo. Ao entrar no servidor, estou oficialmente encenando, independente de estar isolado farmando ou em uma vila lotada.</label>
+                </div>
+                <div class="checkbox-group">
+                    <input type="checkbox" id="ciente3" name="ciente3" required>
+                    <label for="ciente3"><strong>Consequências Fatais:</strong> Estou ciente do sistema de mortes. Se meu personagem for executado de forma justificável em RP, aceitarei o fim da sua jornada de cabeça erguida, sem toxicidade.</label>
+                </div>
+                <div class="checkbox-group">
+                    <input type="checkbox" id="ciente4" name="ciente4" required>
+                    <label for="ciente4"><strong>Recomeço Absoluto (Wipe):</strong> Concordo que, ao sofrer morte definitiva (CK), meu histórico, posses e patentes são resetados. Criarei uma nova identidade totalmente do zero.</label>
+                </div>
+                <div class="checkbox-group">
+                    <input type="checkbox" id="ciente5" name="ciente5" required>
+                    <label for="ciente5"><strong>Tolerância Zero:</strong> Declaro ciência de que abusar de bugs, usar clientes alternativos (hacks) ou explorar falhas no mapa resultará em banimento permanente sem direito a recurso.</label>
+                </div>
+                <div class="checkbox-group">
+                    <input type="checkbox" id="ciente6" name="ciente6" required>
+                    <label for="ciente6"><strong>Respeito Institucional:</strong> Prometo resolver denúncias apenas através de tickets privados com a moderação, jamais iniciando discussões no chat público ou parando uma cena de RP no meio.</label>
+                </div>
+
+                <button type="submit" class="submit-btn" id="submitBtn">
+                    <span class="btn-text">Submeter Pergaminho (Enviar)</span>
+                    <div class="loader" id="btnLoader" style="display: none;"></div>
+                </button>
+                <div id="responseMessage" class="response-message"></div>
+            </form>
+        </div>
+    </main>
+
+    <script>
+        document.getElementById('whitelistForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const btn = document.getElementById('submitBtn');
+            const loader = document.getElementById('btnLoader');
+            const btnText = document.querySelector('.btn-text');
+            const responseMessage = document.getElementById('responseMessage');
+            
+            btn.disabled = true;
+            btnText.style.display = 'none';
+            loader.style.display = 'block';
+            responseMessage.style.display = 'none';
+            responseMessage.className = 'response-message';
+
+            const formData = {
+                discordTag: document.getElementById('discordTag').value,
+                discordId: document.getElementById('discordId').value,
+                minecraftNick: document.getElementById('minecraftNick').value,
+                age: document.getElementById('age').value,
+                pronouns: document.getElementById('pronouns').value,
+                availability: document.getElementById('availability').value,
+                playerProfile: document.getElementById('playerProfile').value,
+                rpExperience: document.getElementById('rpExperience').value,
+                charName: document.getElementById('charName').value,
+                charAge: document.getElementById('charAge').value,
+                charAlignment: document.getElementById('charAlignment').value,
+                charPsychology: document.getElementById('charPsychology').value,
+                charLore: document.getElementById('charLore').value,
+                rpScenario: document.getElementById('rpScenario').value,
+                metaGamingSense: document.getElementById('metaGamingSense').value,
+                powerGamingSense: document.getElementById('powerGamingSense').value,
+                darkRpSense: document.getElementById('darkRpSense').value,
+                antiRpSense: document.getElementById('antiRpSense').value,
+                ciente: document.getElementById('ciente1').checked && 
+                        document.getElementById('ciente2').checked && 
+                        document.getElementById('ciente3').checked && 
+                        document.getElementById('ciente4').checked && 
+                        document.getElementById('ciente5').checked &&
+                        document.getElementById('ciente6').checked
+            };
+
+            if (!formData.ciente) {
+                responseMessage.textContent = 'Você deve assinar (marcar) todos os termos do contrato ninja.';
+                responseMessage.classList.add('error');
+                responseMessage.style.display = 'block';
+                btn.disabled = false;
+                btnText.style.display = 'block';
+                loader.style.display = 'none';
+                return;
+            }
+
+            try {
+                const res = await fetch('/api/submit-form', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(formData)
+                });
+
+                const data = await res.json();
+
+                if (res.ok) {
+                    responseMessage.textContent = 'Seu pergaminho foi enviado à Staff! Aguarde a avaliação via DM no Discord.';
+                    responseMessage.classList.add('success');
+                    document.getElementById('whitelistForm').reset();
+                    responseMessage.scrollIntoView({ behavior: 'smooth' });
+                } else {
+                    responseMessage.textContent = data.error || 'Erro ao enviar a ficha.';
+                    responseMessage.classList.add('error');
+                }
+            } catch (err) {
+                console.error(err);
+                responseMessage.textContent = 'Erro de conexão ao enviar pergaminho. Tente novamente mais tarde.';
+                responseMessage.classList.add('error');
+            } finally {
+                btn.disabled = false;
+                btnText.style.display = 'block';
+                loader.style.display = 'none';
+                responseMessage.style.display = 'block';
+            }
+        });
+    </script>
+</body>
+</html>
