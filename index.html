@@ -286,7 +286,12 @@
                     body: JSON.stringify(formData)
                 });
 
-                const data = await res.json();
+                let data;
+                try {
+                    data = await res.json();
+                } catch (parseErr) {
+                    throw new Error(`O servidor retornou um erro inesperado (Status: ${res.status}). Verifique o console da hospedagem.`);
+                }
 
                 if (res.ok) {
                     responseMessage.textContent = 'Seu pergaminho foi enviado à Staff! Aguarde a avaliação via DM no Discord.';
@@ -299,7 +304,7 @@
                 }
             } catch (err) {
                 console.error(err);
-                responseMessage.textContent = 'Erro de conexão ao enviar pergaminho. Tente novamente mais tarde.';
+                responseMessage.textContent = err.message || 'Erro de conexão ao enviar pergaminho. Tente novamente mais tarde.';
                 responseMessage.classList.add('error');
             } finally {
                 btn.disabled = false;
